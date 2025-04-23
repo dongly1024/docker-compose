@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.4.4
+    container_name: mysql8.4
+    ports:
+      - "6379:6379"
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=tiger
+      - MYSQL_USER=tiger
+      - MYSQL_PASSWORD=123456
+    networks:
+      - my-network
+networks:
+  my-network:
+    driver: bridge
