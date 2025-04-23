@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  redis:
+    image: redis:6.2.17
+    container_name: redis6
+    ports:
+      - "6379:6379"
+    environment:
+      - requirepass=123456
+      - TZ=Asia/Shanghai
+    networks:
+      - my-network
+    command: sh mqnamesrv
+networks:
+  my-network:
+    driver: bridge
