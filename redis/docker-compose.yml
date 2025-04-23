@@ -5,11 +5,13 @@ services:
     container_name: redis6
     ports:
       - "6379:6379"
+    volumes:
+      - ./data:/data
     environment:
       - TZ=Asia/Shanghai
     networks:
       - my-network
-    command: --requirepass=123456
+    command: --appendonly yes  --requirepass '123456'
 networks:
   my-network:
     driver: bridge
