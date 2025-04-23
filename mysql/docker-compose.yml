@@ -4,7 +4,9 @@ services:
     image: mysql:8.4.4
     container_name: mysql8.4
     ports:
-      - "6379:6379"
+      - "3306:3306"
+    volumes:
+      - ./datadir:/var/lib/mysql
     environment:
       - TZ=Asia/Shanghai
       - MYSQL_ROOT_PASSWORD=123456
