@@ -6,7 +6,7 @@ services:
     ports:
       - "9876:9876"
     environment:
-      TZ: Asia/Shanghai
+      - TZ=Asia/Shanghai
     networks:
       - my-network
     command: sh mqnamesrv
@@ -17,9 +17,11 @@ services:
       - "10909:10909"
       - "10911:10911"
       - "10912:10912"
+    volumes:
+      - ./broker.conf:/home/rocketmq/rocketmq-5.3.2/conf/broker.conf
     environment:
-      NAMESRV_ADDR: rmqnamesrv:9876
-      TZ: Asia/Shanghai
+      - NAMESRV_ADDR=rmqnamesrv:9876
+      - TZ=Asia/Shanghai
     depends_on:
       - namesrv
     networks:
