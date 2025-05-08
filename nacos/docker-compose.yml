@@ -18,4 +18,5 @@ services:
     command: --appendonly yes  --requirepass '123456'
 networks:
   my-network:
-    driver: bridge
+    name: my-network
+    external: true
