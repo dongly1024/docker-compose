@@ -1,12 +1,12 @@
 version: '3.8'
 services:
-  mysql:
+  mysql5:
     image: mysql:5.7.44
-    container_name: mysql5.7
+    container_name: mysql57
     ports:
       - "3316:3306"
     volumes:
-      - ./datadir:/var/lib/mysql
+      - C:/Users/dongliyang/docker/mysql/datadir5:/var/lib/mysql
     environment:
       - TZ=Asia/Shanghai
       - MYSQL_ROOT_PASSWORD=123456
