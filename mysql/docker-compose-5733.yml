@@ -1,0 +1,24 @@
+services:
+  mysql5:
+    image: mysql:5.7.33
+    container_name: mysql5733
+    ports:
+      - "3307:3306"
+      - "33061:33060"
+    volumes:
+      - ~/docker/mysql/datadir5:/var/lib/mysql
+    environment:
+      - TZ=Asia/Shanghai
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=tiger
+      - MYSQL_USER=tiger
+      - MYSQL_PASSWORD=123456
+    command:
+      - --character-set-server=utf8
+      - --collation-server=utf8_unicode_ci
+    networks:
+      - my-network
+networks:
+  my-network:
+    name: my-network
+    external: true
