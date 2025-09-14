@@ -1,0 +1,21 @@
+services:
+  nacos:
+    image: docker.xuanyuan.run/nacos/nacos-server:${NACOS_VERSION}
+    container_name: nacos-standalone
+    environment:
+      - TZ=Asia/Shanghai
+      - MODE=standalone
+      - NACOS_AUTH_IDENTITY_KEY=serverIdentity
+      - NACOS_AUTH_IDENTITY_VALUE=security
+      - NACOS_AUTH_TOKEN=VGhpc0lzTXlDdXN0b21TZWNyZXRLZXkwMTIzNDU2Nzg=
+    volumes:
+      - ./standalone-logs/:/home/nacos/logs
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+    networks:
+      - network
+networks:
+  network:
+    name: network
+    external: true

@@ -2,7 +2,7 @@ version: '3.8'
 services:
   nacos:
     image: nacos/nacos-server:v2.5.1
-    container_name: nacos25
+    container_name: nacos-standalone
     ports:
       - "8848:8848"
       - "9848:9848"
@@ -15,7 +15,6 @@ services:
       - NACOS_AUTH_TOKEN=SecretKey012345678901234567890123456789012345678901234567890123456789
     networks:
       - my-network
-    command: --appendonly yes  --requirepass '123456'
 networks:
   my-network:
     name: my-network
